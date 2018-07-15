@@ -1,0 +1,126 @@
+{{ define "title" }}{{ i18n .Data.Plural }} · {{ .Site.Title }}{{ end }}
+
+{{ define "header" }}
+<div class="container header-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header-content">
+        <h1 class="header-title text-uppercase">
+          {{ i18n .Data.Plural }}
+        </h1>
+        <div class="header-underline"></div>
+        <p class="header-subtitle header-subtitle-homepage">
+          {{ i18n (printf "list_of_%s" .Data.Plural) }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{ define "main" }}
+{{ $termName := .Data.Plural }}
+<div class="archive-container">
+    <div class="container content archive">
+    {{ if and $.Site.Taxonomies.categories (eq $termName "categories") }}
+      {{ $terms := .Data.Terms.ByCount }}
+      {{ range $key, $value := $terms }}
+      <h2><a href="{{ "/category/" | relLangURL }}{{ $value.Term | urlize}}{{ if $.Site.Params.uglyURLs}}.html{{ else }}/{{ end }}">{{ $value.Name }}</a></h2>
+        <dl class="row">
+            {{ range first ($.Site.Params.numListPosts | default 10) $value.Pages }}
+            <dt class="col-md-3">{{ .Date.Format (.Site.Params.dateFormatToUse | default "Mon 02 January 2006") }}</dt>
+            <dd class="col-md-9"><a href="{{ .URL }}">{{ .Title }}</a></dd>
+            {{ end }}
+        </dl>
+        {{ if gt (len $value.Pages) ($.Site.Params.numListPosts | default 10) }}
+          <div class="more-post">
+            <a href="{{ "/category/" | relLangURL }}{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs }}.html{{ else }}/{{ end }}" class="more-post-link btn btn-light">{{ i18n "more_post" }}</a>
+          </div>
+        {{ end }}
+      {{ end }}
+    {{ else if and $.Site.Taxonomies.tags (eq $termName "tags") }}
+      <h2><a href="{{ .URL }}">{{ i18n (printf "list_of_%s" .Data.Plural) }}</a></h2>
+      {{ $terms := .Data.Terms.Alphabetical }}
+      <dl class="row">
+      {{ range $key, $value := $terms }}
+        {{ $count := len $value.Pages }}
+            <dt class="col-md-3"><span class="badge badge-secondary">{{ $count }}</span> {{ if gt $count 1 }}{{ i18n "articles_tagged" }}{{ else }}{{ i18n "article_tagged" }}{{ end }}</dt>
+            <dd class="col-md-9"><a href="{{ "/tag/" | relLangURL }}{{ $value.Term | urlize }}{{ if $.Site.Params.uglyURLs}}.html{{ else }}/{{ end }}">{{ $value.Name }}</a></dd>
+      {{ end }}
+      </dl>
+    {{ end }}
+    </div>
+</div>
+{{ if not (eq $termName "tags") }}
+{{ partial "pagination.html" . }}
+{{ end }}
+{{ end }}
+
+{{/*{{ define "main" }}
+
+  <!-- Categories Page -->
+  {{ if and $.Site.Taxonomies.categories (eq $termName "categories") }}
+    {{ range $key, $value := $terms }}
+      <section id="archive" class="archive">
+        <div class="archive-title">
+        </div>
+          <div class="collection-title">
+            <h2 class="archive-year">
+              <a href="{{ "/category/" | relLangURL }}{{ $value.Term | urlize }}{{if $.Site.Params.uglyURLs}}.html{{else}}/{{end}}">
+                {{ i18n "category" }}{{ $value.Term }}
+              </a>
+            </h2>
+          </div>
+
+          {{ range first 5 $value.Pages }}
+            <div class="archive-post">
+              <span class="archive-post-time">
+                {{ .Date.Format "2006-01-02" }}
+              </span>
+              <span class="archive-post-title">
+                <a href="{{ .URL }}" class="archive-post-link">
+                  {{ .Title }}
+                </a>
+              </span>
+            </div>
+          {{ end }}
+          {{ if gt (len $value.Pages) 5 }}
+            <div class="more-post">
+              <a href="{{ "/category/" | relLangURL }}{{ $value.Term | urlize }}{{if $.Site.Params.uglyURLs}}.html{{else}}/{{end}}" class="more-post-link">{{ i18n "morePost" }}</a>
+            </div>
+          {{ end }}
+      </section>
+    {{ end }}
+
+  <!-- Tag cloud Page -->
+  {{ else if and $.Site.Taxonomies.tags (eq $termName "tags") }}
+    {{ $fontUnit := "rem" }}
+    {{ $largestFontSize := 2.0 }}
+    {{ $largestFontSize := 2.5 }}
+    {{ $smallestFontSize := 1.0 }}
+    {{ $fontSpread := sub $largestFontSize $smallestFontSize }}
+    {{ $max := add (len (index $.Site.Taxonomies.tags.ByCount 0).Pages) 1 }}
+    {{ $min := len (index $.Site.Taxonomies.tags.ByCount.Reverse 0).Pages }}
+    {{ $spread := sub $max $min }}
+    {{ $fontStep := div $fontSpread $spread }}
+    <div class="tag-cloud" style="padding: 5px 15px">
+      <div class="tag-cloud-title">
+        {{ i18n "counter_tagcloud" $length}}
+      </div>
+      <div class="tag-cloud-tags">
+      {{ range $tagName, $taxonomy := $.Site.Taxonomies.tags }}
+        {{ $currentTagCount := len $taxonomy.Pages }}
+        {{ $currentFontSize := (add $smallestFontSize (mul (sub $currentTagCount $min) $fontStep) ) }}
+        {{ $count := len $taxonomy.Pages }}
+        {{ $weigth := div (sub (math.Log $count) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) }}
+        {{ $currentFontSize := (add $smallestFontSize (mul (sub $largestFontSize $smallestFontSize) $weigth) ) }}
+        <!--Current font size: {{$currentFontSize}}-->  
+        <a href="{{ "/tag/" | relLangURL }}{{ $tagName | urlize }}{{if $.Site.Params.uglyURLs}}.html{{else}}/{{end}}"
+          style="font-size:{{$currentFontSize}}{{$fontUnit}}">{{ $tagName }}</a>
+      {{ end }}
+      </div>
+    </div>
+  {{ end }}
+
+{{ end }}
+*/}}

@@ -1,0 +1,64 @@
+<div class="footer gradient-2">
+  <div class="container footer-container ">
+    <div class="row">
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        <div class="footer-title">{{ i18n "sitemap" }}</div>
+        <ul class="list-unstyled">
+            {{ if .Site.Menus.sitemap }}
+              {{ range .Site.Menus.sitemap }}
+                <li><a href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a></li>
+              {{ end }}
+            {{ else }}
+              <li><a href="{{ "/tags/" | relLangURL }}">{{ i18n "tags" }}</a></li>
+              <li><a href="{{ "/categories/" | relLangURL }}">{{ i18n "categories" }}</a></li>
+            {{ end }}
+            {{ with .Site.GetPage "home" }}
+            {{ with .OutputFormats.Get "RSS" }}
+              <li><a rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">{{ i18n "rss_feed" }}</a></li>
+            {{ end }}
+            {{ end }}
+        </ul>
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        {{ if .Site.Menus.social }}
+        <div class="footer-title">{{ i18n "social" }}</div>
+        <ul class="list-unstyled">
+          {{ range .Site.Menus.social }}
+          <li><a href="{{ .URL | safeURL }}" rel="noopener" target="_blank">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </div>
+      <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+        {{ if .Site.Menus.links }}
+        <div class="footer-title">{{ i18n "links" }}</div>
+        <ul class="list-unstyled">
+          {{ range .Site.Menus.links }}
+          <li><a href="{{ .URL | safeURL }}" rel="noopener" target="_blank">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </div> 
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+        <p class="pull-right text-right">
+          <small><em>Proudly powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo</a></em></small><br/>
+          <small><em>Theme - <a href="https://github.com/shaform/hugo-theme-den" rel="noopener" target="_blank">Den</a></em></small><br/>
+          <small>
+            {{ $current := now.Format "2006" -}}
+            &copy; 
+            {{ if or .Site.Copyright .Site.Author.name -}}
+            {{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}
+            {{- end }}
+            {{ if and .Site.Params.since (ne .Site.Params.since $current) }}
+              {{ .Site.Params.since }} -
+            {{ end }}
+            {{- $current }}
+          </small>
+          {{ with .Site.Params.footerHTML }}
+          <small><em>{{ . | safeHTML }}</em></small>
+          {{ end }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

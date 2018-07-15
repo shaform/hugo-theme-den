@@ -1,0 +1,12 @@
+{{ if .IsTranslated }}
+{{- $last := (sub (len .Translations) 1) -}}
+<div class="clearfix"></div>
+<p class="float-right translations">
+    <i class="fas fa-language" aria-hidden="true"></i>
+    {{ i18n "translations" }}
+    {{ range $index, $value := (.Translations | sort) -}}
+      <a href="{{ $value.Permalink }}">{{ $value.Lang | upper }}</a>
+      {{- if ne $index $last }}, {{ end -}}
+    {{ end }}
+</p>
+{{ end }}

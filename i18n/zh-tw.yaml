@@ -1,0 +1,78 @@
+- id: sitemap
+  translation: 網站地圖
+
+- id: tags
+  translation: 標籤
+
+- id: categories
+  translation: 分類
+
+- id: social
+  translation: 社群
+
+- id: links
+  translation: 連結
+
+- id: rss_feed
+  translation: RSS 訂閱
+
+- id: tag
+  translation: 標籤
+
+- id: category
+  translation: 分類
+
+- id: archive_of_tag
+  translation: 標籤彙整：
+
+- id: archive_of_category
+  translation: 分類彙整：
+
+- id: archive
+  translation: 彙整
+
+- id: list_of_tags
+  translation: 標籤列表
+
+- id: list_of_categories
+  translation: 分類列表
+
+- id: more_post
+  translation: 更多文章
+
+- id: articles_tagged
+  translation: 篇被標記
+
+- id: article_tagged
+  translation: 篇被標記
+
+- id: error_404
+  translation: '404 錯誤 - 找不到網頁'
+
+- id: in_category
+  translation: 分類：
+
+
+- id: latest_posts
+  translation: 最新文章
+
+- id: page
+  translation: 頁
+
+- id: previous
+  translation: 上一頁
+
+- id: next
+  translation: 下一頁
+
+- id: author_by
+  translation: 作者：
+
+- id: related
+  translation: 相關文章
+
+- id: load_disqus
+  translation: 載入 Disqus 評論
+
+- id: translations
+  translation: "翻譯： "

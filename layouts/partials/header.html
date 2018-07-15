@@ -1,0 +1,32 @@
+<div class="container">
+  <nav class="header-nav navbar navbar-expand-md navbar-dark light-dark">
+    <div class="header-logo navbar-brand">
+      <a class="float-left" href="{{ "/" | relLangURL }}">
+        {{ with .Site.Params.siteLogoImage }}
+        <img class="mr20 header-logo-image" src="{{ . | relURL }}" alt="logo">
+        {{ end }}
+        {{ if .Site.Params.logoTitle }}
+          {{ .Site.Params.logoTitle | safeHTML }}
+        {{ else }}
+          {{ .Site.Title }}
+        {{ end }} 
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="nav-menu collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        {{ range .Site.Menus.main }}
+          <li class="nav-item">
+            {{ if hasPrefix .URL "http" }}
+              <a class="nav-link" href="{{ .URL | safeURL }}" rel="noopener" target="_blank">{{ with .Pre }}{{ . | safeHTML }}{{ end }}{{ .Name }}</a>
+            {{ else }}
+              <a class="nav-link" href="{{ .URL | relLangURL | safeURL }}">{{ with .Pre }}{{ . | safeHTML }}{{ end }}{{ .Name }}</a>
+            {{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </nav>
+</div>

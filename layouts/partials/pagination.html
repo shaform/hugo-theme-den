@@ -1,0 +1,59 @@
+{{ $paginator := $.Paginator }}
+{{ if gt $paginator.TotalPages  1 }}
+<nav class="container navigation">
+  {{ if .Site.Params.paginateOriginalStyle -}}
+    {{- if $paginator.HasPrev -}}
+      <a class="navigate float-left" href="{{ $paginator.Prev.URL }}"><i class="fas fa-caret-left"></i> {{ i18n "previous" }}</a>
+    {{ end -}}
+    {{- if $paginator.HasNext -}}
+      <a class="navigate float-right" href="{{ $paginator.Next.URL }}">{{ i18n "next" }} <i class="fas fa-caret-right"></i></a>
+    {{ end }}
+  {{ else }}
+    {{ $adjacent_links := (.Site.Params.adjacentPages | default 5) }}
+    {{ $max_links := (add (mul $adjacent_links 2) 1) }}
+    {{ $lower_limit := (sub $paginator.PageNumber $adjacent_links) }}
+    {{ $upper_limit := (add $paginator.PageNumber $adjacent_links) }}
+    <ul class="pagination justify-content-center">
+      {{ if (le $paginator.TotalPages $max_links) }}
+        {{ range $paginator.Pagers }}
+          {{ if eq . $paginator }}
+          <li class="page-item active">
+            <a href="#" class="page-link">{{ .PageNumber }}</a>
+          </li>
+          {{ else }}
+          <li class="page-item">
+            <a href="{{ .URL }}" class="page-link">{{ .PageNumber }}</a>
+          </li>
+          {{ end }}
+        {{ end }}
+      {{ else }}
+        {{ if ne $paginator.PageNumber 1 }}
+          <li class="page-item"><a class="page-link" href="{{ $paginator.First.URL }}"><i class="fas fa-angle-double-left"></i></a></li>
+        {{ end }}
+        {{ if $paginator.HasPrev }}
+          <li class="page-item"><a class="page-link" href="{{ $paginator.Prev.URL }}"><i class="fas fa-angle-left"></i></a></li>
+        {{ end }}
+        {{ range $paginator.Pagers }}
+          {{ if and (le .PageNumber $upper_limit) (ge .PageNumber $lower_limit)}}
+            {{ if eq . $paginator }}
+            <li class="page-item active">
+              <a href="#" class="page-link">{{ .PageNumber }}</a>
+            </li>
+            {{ else }}
+            <li class="page-item">
+              <a href="{{ .URL }}" class="page-link">{{ .PageNumber }}</a>
+            </li>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ if $paginator.HasNext }}
+          <li class="page-item"><a class="page-link" href="{{ $paginator.Next.URL }}"><i class="fas fa-angle-right"></i></a></li>
+        {{ end }}
+        {{ if ne $paginator.PageNumber $paginator.TotalPages }}
+          <li class="page-item"><a class="page-link" href="{{ $paginator.Last.URL }}"><i class="fas fa-angle-double-right"></i></a></li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  {{ end }}
+</nav>
+{{ end }}

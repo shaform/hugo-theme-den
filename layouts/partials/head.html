@@ -1,0 +1,42 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+{{- if .Description -}}
+  <meta name="description" content="{{ .Description | safeHTML }}" />
+{{ else if .IsPage }}
+  <meta name="description" content="{{ .Summary | plainify }}" />
+{{ else if .Site.Params.description }}
+  <meta name="description" content="{{ .Site.Params.description | safeHTML }}" />
+{{- end -}}
+
+{{- if .Keywords -}}
+  {{ $length := len .Keywords | add -1 -}}
+  <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ $element | safeHTML }}{{if ne $index $length }}, {{ end }}{{ end }}" />
+{{ else if .Site.Params.keywords }}
+  {{ $length := len .Site.Params.keywords | add -1 -}}
+  <meta name="keywords" content="{{ range $index, $element := .Site.Params.keywords }}{{ $element | safeHTML }}{{if ne $index $length }}, {{ end }}{{ end }}" />
+{{- end -}}
+
+{{- with .Site.Params.google_verification -}}
+<meta name="google-site-verification" content="{{.}}" />
+{{- end -}}
+
+{{- with .Site.Params.customFavicon -}}
+<link rel="icon" href="{{ . | relURL }}" />
+{{- end }}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ "/css/den.css" | relURL }}">
+{{ range .Site.Params.customCSS }}
+<link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
+{{ end }}
+
+{{/* https://gohugo.io/templates/internal/ */}}
+{{- template "_internal/opengraph.html" . -}}
+{{- template "_internal/google_news.html" . -}}
+{{- template "_internal/schema.html" . -}}
+{{- template "_internal/twitter_cards.html" . -}}
+
+{{- if .Site.GoogleAnalytics -}}
+  {{ template "_internal/google_analytics_async.html" . }}
+{{- end -}}

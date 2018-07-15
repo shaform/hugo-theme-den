@@ -1,0 +1,30 @@
+{{ define "title" }}{{ i18n "archive" }} · {{ .Title }} · {{ .Site.Title }}{{ end }}
+{{ define "header" }}
+<div class="container header-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header-content">
+        <h1 class="header-title text-uppercase">
+          {{ i18n "archive" }} : {{ .Title }}
+        </h1>
+        <div class="header-underline"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+{{ define "main" }}
+{{- $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
+<div class="archive-container">
+    <div class="container content archive">
+      <h2>{{ .Title }}{{ if $paginator.HasPrev }} <small>- {{ i18n "page" }} {{ $paginator.PageNumber }}</small>{{ end }}</h2>
+        <dl class="row">
+            {{ range $paginator.Pages -}}
+            <dt class="col-md-3">{{ .Date.Format (.Site.Params.dateFormatToUse | default "Mon 02 January 2006") }}</dt>
+            <dd class="col-md-9"><a href="{{ .URL }}">{{ .Title }}</a></dd>
+            {{ end }}
+        </dl>
+    </div>
+</div>
+{{ partial "pagination.html" . }}
+{{ end }}

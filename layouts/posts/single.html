@@ -1,0 +1,62 @@
+{{ define "header" }}
+<div class="container header-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header-content">
+        <h1 class="header-title">{{ .Title }}</h1>
+        <p class="header-date">
+        {{- if .Params.authors }}
+          {{- $last := (sub (len .Params.authors) 1) -}}
+          {{- i18n "author_by" }}
+          {{ range $index, $value := .Params.authors -}}
+            {{ $value }}{{ if ne $index $last }}, {{ end -}}
+          {{ end }},
+        {{ end }}
+          {{ .Date.Format (.Site.Params.dateFormatToUse | default "Mon 02 January 2006") -}}
+          {{ with .Params.categories -}}
+          , {{ i18n "in_category" }}
+          {{- $last := (sub (len .) 1) -}}
+          {{ range $index, $value := . }}
+            <a href="{{ "/category/" | relLangURL }}">{{ $value }}</a>
+            {{- if ne $index $last }}, {{ end -}}
+          {{ end -}}
+        </p>
+        {{ end }}
+        <div class="header-underline"></div>
+        {{ with .Params.tags }}
+          {{- $last := (sub (len .) 1) -}}
+          <div class="clearfix"></div>
+          <p class="float-right header-tags">
+              <i class="fas fa-tags" aria-hidden="true"></i>
+              {{ range $index, $value := (. | sort) -}}
+                <a href="{{ "/tag/" | relLangURL }}{{ $value | urlize }}{{if $.Site.Params.uglyURLs}}.html{{else}}/{{end}}">{{ . }}</a>
+                {{- if ne $index $last }}, {{ end -}}
+              {{ end }}
+          </p>
+        {{ end }}
+        {{ partial "i18nlist.html" . }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{ define "main" }}
+<div class="container content">
+  {{ .Content }}
+
+  {{ if .Site.Params.enableRelated -}}
+  {{- $related := .Site.RegularPages.Related . | first 5 -}}
+  {{- with $related }}
+      <h4>{{ i18n "related" }}</h4>
+      <dl class="row">
+      {{ range . }}
+          <dt class="col-md-3">{{ .Date.Format (.Site.Params.dateFormatToUse | default "Mon 02 January 2006") }}</dt>
+          <dd class="col-md-9"><a href="{{ .RelPermalink }}">{{ .Title }}</a></dd>
+      {{ end }}
+      </dl>
+  {{ end }}
+  {{ end }}
+  {{ partial "comments.html" . }}
+</div>
+{{ end }}
