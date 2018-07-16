@@ -17,7 +17,7 @@
           , {{ i18n "in_category" }}
           {{- $last := (sub (len .) 1) -}}
           {{ range $index, $value := . }}
-            <a href="{{ "/category/" | relLangURL }}">{{ $value }}</a>
+            <a href="{{ "/category/" | relLangURL }}{{ $value | urlize }}{{if $.Site.Params.uglyURLs}}.html{{else}}/{{end}}">{{ $value }}</a>
             {{- if ne $index $last }}, {{ end -}}
           {{ end -}}
         </p>
@@ -29,7 +29,7 @@
           <p class="float-right header-tags">
               <i class="fas fa-tags" aria-hidden="true"></i>
               {{ range $index, $value := (. | sort) -}}
-                <a href="{{ "/tag/" | relLangURL }}{{ $value | urlize }}{{if $.Site.Params.uglyURLs}}.html{{else}}/{{end}}">{{ . }}</a>
+                <a href="{{ "/tag/" | relLangURL }}{{ $value | urlize }}{{if $.Site.Params.uglyURLs}}.html{{else}}/{{end}}">{{ $value }}</a>
                 {{- if ne $index $last }}, {{ end -}}
               {{ end }}
           </p>
