@@ -1,0 +1,10 @@
+<div class="embed googlemaps">
+	<iframe
+		src="https://mapsengine.google.com/map/embed?mid={{ .Get "id" }}"
+		frameborder="0"
+		scrolling="no"
+        width="{{ .Get "width" | default "100%" }}"
+        height="{{ .Get "height" }}"
+        >
+	</iframe>
+</div>
