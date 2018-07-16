@@ -1,0 +1,168 @@
+# ------------------------------------- #
+# ---- General Settings --------------- #
+# ------------------------------------- #
+baseURL = "https://example.org/"
+title = "Den"
+theme = "hugo-theme-den"
+enableRobotsTXT = true       # generate robots.txt
+enableEmoji = true           # use emoji support
+hasCJKLanguage = true        # detect CJK languages for word count etc.
+preserveTaxonomyNames = true # do not make tag names lowercase
+# uglyURLs = true            # more info: https://gohugo.io/content-management/urls/#ugly-urls
+rssLimit = 20                # limit number of entries in RSS feeds
+
+# Copyright, appears in the footer
+# copyright = ""             # default: author.name
+
+# Pagination
+# number of entries per page for archives, tags and categories
+# since we don't have list view, recommend a large value
+paginate = 20
+paginatePath = "page"
+
+# Syntax Hightlight
+PygmentsCodeFences = true
+PygmentsUseClasses = true    # required for shhighlight shortcode
+
+# service plugins
+disqusShortname = ""         # disqus_shortname
+googleAnalytics = ""         # UA-XXXXXXXX-X
+
+# language support # en / zh-tw / other... translations present in i18n/
+defaultContentLanguage = "en"           # Default language to use
+defaultContentLanguageInSubdir = true
+
+# Links format
+[permalinks]
+  posts = "/:year/:month/:day/:slug/"
+  categories = "/category/:slug/"      # required
+  tags = "/tag/:slug/"                 # required
+  pages = "/:slug/"
+
+[author]                     # required
+  name = "Jane Doe"
+
+[sitemap]                    # required
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# ------------------------------------- #
+# ---- Other Params ------------------- #
+# ------------------------------------- #
+
+[params]
+  # uglyURLs = true            # must set true if toplevel uglyURLs is true
+  since = "2017"             # Site creation time
+  rssFullContent = true      # set true to use full content instead of summary
+
+  # site info (optional)
+  keywords = ["Hugo", "theme","den"]
+  description = "A simple theme for Hugo"
+  logoTitle = "Den" # shown on top-left, default: title
+  siteLogoImage = "images/globe.svg"     # shown besides logoTitle
+  # headerTitle = "Den"                   # default: title
+  headerImage = "images/background.jpg"
+
+  showMenuLanguages = true
+
+  # paginate style, default use numbered pagination links
+  # if true, use original "Previous" and "Next" links.
+  # paginateOriginalStyle = true
+
+  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
+  dateFormatToUse = "2006-01-02"
+
+  google_verification = ""  # Google_Verification
+
+  # Link custom CSS and JS assets
+  #   (relative to /static/css and /static/js respectively)
+  customCSS = []             # if ['custom.css'], load '/static/css/custom.css' file
+  customJS = []              # if ['custom.js'], load '/static/js/custom.js' file
+
+# ------------------------------------- #
+# ---- Related Articles --------------- #
+# ------------------------------------- #
+[related]
+  # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.
+  threshold = 50
+
+  # To get stable "See also" sections we, by default, exclude newer related pages.
+  includeNewer = true
+
+  # Will lower case keywords in both queries and in the indexes.
+  toLower = false
+
+[[related.indices]]
+  name = "categories"
+  weight = 200
+
+[[related.indices]]
+  name = "keywords"
+  weight = 150
+
+[[related.indices]]
+  name = "tags"
+  weight = 100
+
+
+[languages.en]
+  languageCode = "en"
+  languageName = "English"
+  contentDir = "content/en"
+  weight = 1
+
+  [[languages.en.menu.main]]
+    name = "Notes"
+    weight = 10
+    identifier = "notes"
+    url = "/category/notes/"
+  [[languages.en.menu.main]]
+    name = "Demos"
+    weight = 20
+    identifier = "demos"
+    url = "/category/demos/"
+
+  [[languages.en.menu.social]]
+    name = "GitHub"
+    weight = 10
+    identifier = "github"
+    url = "https://github.com/shaform/hugo-theme-den/"
+
+  [[languages.en.menu.links]]
+    name = "About Me"
+    weight = 10
+    identifier = "about-me"
+    url = "https://github.com/shaform/hugo-theme-den/"
+
+[languages.zh-tw]
+  languageCode = "zh-tw"
+  languageName = "繁體中文"
+  contentDir = "content/zh-tw"
+  weight = 2
+
+  [languages.zh-tw.params]
+    description = "一個簡單的佈景。"
+
+  [[languages.zh-tw.menu.main]]
+    name = "筆記"
+    weight = 10
+    identifier = "notes"
+    url = "/category/notes/"
+  [[languages.zh-tw.menu.main]]
+    name = "展示"
+    weight = 20
+    identifier = "demos"
+    url = "/category/demos/"
+
+  [[languages.zh-tw.menu.social]]
+    name = "GitHub"
+    weight = 10
+    identifier = "github"
+    url = "https://github.com/shaform/hugo-theme-den/"
+
+  [[languages.zh-tw.menu.links]]
+    name = "關於我"
+    weight = 10
+    identifier = "about-me"
+    url = "https://github.com/shaform/hugo-theme-den/"
