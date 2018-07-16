@@ -31,6 +31,10 @@
 <link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
 {{ end }}
 
+{{ if .RSSLink }}
+<link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+{{ end }}
+
 {{/* https://gohugo.io/templates/internal/ */}}
 {{- template "_internal/opengraph.html" . -}}
 {{- template "_internal/google_news.html" . -}}
