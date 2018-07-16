@@ -20,3 +20,13 @@ categories: ["Demos"]
 ## Figure
 
 {{<figure src="/images/globe.svg" alt="Globe" align="aligncenter" width="300" caption="**Globe**">}}
+
+
+## Highlight for Shells
+
+{{< shhighlight bash "hl_lines=2 4" >}}
+# test
+echo test
+# just a test
+echo hello world
+{{< /shhighlight >}}
