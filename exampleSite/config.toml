@@ -4,7 +4,7 @@
 baseURL = "https://example.com"
 title = "Den"
 theme = "hugo-theme-den"
-enableRobotsTXT = true       # generate robots.txt
+#enableRobotsTXT = true       # generate robots.txt
 enableEmoji = true           # use emoji support
 hasCJKLanguage = true        # detect CJK languages for word count etc.
 preserveTaxonomyNames = true # do not make tag names lowercase
