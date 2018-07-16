@@ -20,7 +20,7 @@
         {{ range .Site.Menus.main }}
           <li class="nav-item">
             {{ if hasPrefix .URL "http" }}
-              <a class="nav-link" href="{{ .URL | safeURL }}" rel="noopener" target="_blank">{{ with .Pre }}{{ . | safeHTML }}{{ end }}{{ .Name }}</a>
+              <a class="nav-link" href="{{ .URL | safeURL }}">{{ with .Pre }}{{ . | safeHTML }}{{ end }}{{ .Name }}</a>
             {{ else }}
               <a class="nav-link" href="{{ .URL | relLangURL | safeURL }}">{{ with .Pre }}{{ . | safeHTML }}{{ end }}{{ .Name }}</a>
             {{ end }}
