@@ -1,7 +1,7 @@
 # ------------------------------------- #
 # ---- General Settings --------------- #
 # ------------------------------------- #
-baseURL = "https://example.org/"
+baseURL = "https://example.com"
 title = "Den"
 theme = "hugo-theme-den"
 enableRobotsTXT = true       # generate robots.txt
