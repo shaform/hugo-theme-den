@@ -26,6 +26,16 @@
             {{ end }}
           </li>
         {{ end }}
+        {{ if and (gt (len .Site.Home.AllTranslations) 1) (.Site.Params.showMenuLanguages | default false ) }}
+          {{- $.Scratch.Set "language" .Language -}}
+          {{ range .Site.Home.AllTranslations }}
+          {{ if ne ($.Scratch.Get "language") .Language }}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ .Permalink }}"><i class="fas fa-globe"></i> {{ .Language.LanguageName }}</a>
+            </li>
+          {{ end }}
+          {{ end }}
+        {{ end }}
       </ul>
     </div>
   </nav>

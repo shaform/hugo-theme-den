@@ -14,7 +14,7 @@
             {{ end }}
             {{ with .Site.GetPage "home" }}
             {{ with .OutputFormats.Get "RSS" }}
-              <li><a rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">{{ i18n "rss_feed" }}</a></li>
+            <li><a rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}"><i class="fas fa-rss-square"></i> {{ i18n "rss_feed" }}</a></li>
             {{ end }}
             {{ end }}
         </ul>
