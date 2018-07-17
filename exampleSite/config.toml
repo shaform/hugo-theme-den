@@ -52,7 +52,6 @@ defaultContentLanguageInSubdir = true
 # ------------------------------------- #
 
 [params]
-  # uglyURLs = true            # must set true if toplevel uglyURLs is true
   since = "2017"             # Site creation time
   rssFullContent = true      # set true to use full content instead of summary
 
