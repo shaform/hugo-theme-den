@@ -27,7 +27,7 @@
       {{ range .Data.Terms.ByCount }}
         {{ $name := .Name }}
         {{ $pages := .Pages }}
-        {{ with $.Site.GetPage "taxonomy" $type .Term }}
+        {{ with $.Site.GetPage "taxonomy" (printf "%s/%s" $type .Term) }}
           <h2><a href="{{ .Permalink }}">{{ $name }}</a></h2>
           <dl class="row">
               {{ range first ($.Site.Params.numListPosts | default 10) $pages }}
@@ -48,7 +48,7 @@
       {{ range .Data.Terms.Alphabetical }}
         {{ $name := .Name }}
         {{ $count := len .Pages }}
-        {{ with $.Site.GetPage "taxonomy" $type .Term }}
+        {{ with $.Site.GetPage "taxonomy" (printf "%s/%s" $type .Term) }}
             <dt class="col-md-3"><span class="badge badge-secondary">{{ $count }}</span> {{ if gt $count 1 }}{{ i18n "articles_tagged" }}{{ else }}{{ i18n "article_tagged" }}{{ end }}</dt>
             <dd class="col-md-9"><a href="{{ .Permalink }}">{{ $name }}</a></dd>
         {{ end }}
