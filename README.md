@@ -42,4 +42,4 @@ Released under the [GPLv2](https://github.com/shaform/hugo-theme-den/blob/master
 ## Acknowledgements
 
 - [Nest](https://github.com/molivier/nest)
-- [hexo-theme-jane](https://github.com/xianmin/hugo-theme-jane)
+- [hugo-theme-jane](https://github.com/xianmin/hugo-theme-jane)
