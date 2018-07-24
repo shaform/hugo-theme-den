@@ -9,10 +9,10 @@
                 <li><a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a></li>
               {{ end }}
             {{ else }}
-              {{ with .Site.GetPage "/tags" }}
+              {{ with .Site.GetPage "taxonomyTerm" "/tags" }}
                 <li><a href="{{ .Permalink }}">{{ i18n "tags" }}</a></li>
               {{ end }}
-              {{ with .Site.GetPage "/categories" }}
+              {{ with .Site.GetPage "taxonomyTerm" "/categories" }}
                 <li><a href="{{ .Permalink }}">{{ i18n "categories" }}</a></li>
               {{ end }}
             {{ end }}

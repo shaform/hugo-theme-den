@@ -18,7 +18,7 @@
           / {{ i18n "in_category" }}
           {{ range . -}}
           {{- $name := . -}}
-          {{- with $.Site.GetPage (printf "/categories/%s" $name) | default ($.Site.GetPage (printf "/categories/%s" ($name | urlize))) -}}
+          {{- with $.Site.GetPage "taxonomy" (printf "/categories/%s" $name) | default ($.Site.GetPage "taxonomy" (printf "/categories/%s" ($name | urlize))) -}}
             {{- if not ($.Scratch.Get "firstcategory") -}}
             , 
             {{ else -}}
@@ -37,7 +37,7 @@
               <i class="fas fa-tags" aria-hidden="true"></i>
               {{ range (. | sort) -}}
               {{- $name := . -}}
-              {{- with $.Site.GetPage (printf "/tags/%s" $name) | default ($.Site.GetPage (printf "/tags/%s" ($name | urlize))) -}}
+              {{- with $.Site.GetPage "taxonomy" (printf "/tags/%s" $name) | default ($.Site.GetPage "taxonomy" (printf "/tags/%s" ($name | urlize))) -}}
                 {{- if not ($.Scratch.Get "firsttag") -}}
                 , 
                 {{ else -}}
