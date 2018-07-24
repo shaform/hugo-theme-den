@@ -1,9 +1,9 @@
 <div class="container">
   <nav class="header-nav navbar navbar-expand-md navbar-dark light-dark">
     <div class="header-logo navbar-brand">
-      <a class="float-left" href="{{ "/" | relLangURL }}">
+      <a class="float-left" href="{{ "/" | absLangURL }}">
         {{ with .Site.Params.siteLogoImage }}
-        <img class="mr20 header-logo-image" src="{{ . | relURL }}" alt="logo">
+        <img class="mr20 header-logo-image" src="{{ . | absURL }}" alt="logo">
         {{ end }}
         {{ if .Site.Params.logoTitle }}
           {{ .Site.Params.logoTitle | safeHTML }}
@@ -22,7 +22,7 @@
             {{ if hasPrefix .URL "http" }}
               <a class="nav-link" href="{{ .URL | safeURL }}">{{ with .Pre }}{{ . | safeHTML }}{{ end }}{{ .Name }}</a>
             {{ else }}
-              <a class="nav-link" href="{{ .URL | relLangURL | safeURL }}">{{ with .Pre }}{{ . | safeHTML }}{{ end }}{{ .Name }}</a>
+              <a class="nav-link" href="{{ .URL | absLangURL | safeURL }}">{{ with .Pre }}{{ . | safeHTML }}{{ end }}{{ .Name }}</a>
             {{ end }}
           </li>
         {{ end }}

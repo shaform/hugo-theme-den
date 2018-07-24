@@ -22,13 +22,13 @@
 {{- end -}}
 
 {{- with .Site.Params.customFavicon -}}
-<link rel="icon" href="{{ . | relURL }}" />
+<link rel="icon" href="{{ . | absURL }}" />
 {{- end }}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<link rel="stylesheet" href="{{ "/css/den.css" | relURL }}">
+<link rel="stylesheet" href="{{ "/css/den.css" | absURL }}">
 {{ range .Site.Params.customCSS }}
-<link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
+<link rel="stylesheet" href="{{ "/css/" | absURL }}{{ . }}">
 {{ end }}
 
 {{ if .RSSLink }}

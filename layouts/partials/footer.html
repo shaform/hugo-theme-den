@@ -6,11 +6,15 @@
         <ul class="list-unstyled">
             {{ if .Site.Menus.sitemap }}
               {{ range .Site.Menus.sitemap }}
-                <li><a href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a></li>
+                <li><a href="{{ .URL | absLangURL | safeURL }}">{{ .Name }}</a></li>
               {{ end }}
             {{ else }}
-              <li><a href="{{ "/tags/" | relLangURL }}">{{ i18n "tags" }}</a></li>
-              <li><a href="{{ "/categories/" | relLangURL }}">{{ i18n "categories" }}</a></li>
+              {{ with .Site.GetPage "/tags" }}
+                <li><a href="{{ .Permalink }}">{{ i18n "tags" }}</a></li>
+              {{ end }}
+              {{ with .Site.GetPage "/categories" }}
+                <li><a href="{{ .Permalink }}">{{ i18n "categories" }}</a></li>
+              {{ end }}
             {{ end }}
             {{ with .Site.GetPage "home" }}
             {{ with .OutputFormats.Get "RSS" }}

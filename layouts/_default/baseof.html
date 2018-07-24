@@ -14,7 +14,7 @@
   {{ if .Resources.GetMatch "header" }}
   <div class="header-container" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('{{ (.Resources.GetMatch "header").RelPermalink }}'); background-position: center; background-size: cover; ">
   {{ else if .Site.Params.headerImage }}
-  <div class="header-container" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('{{ .Site.Params.headerImage | relURL }}'); background-position: center; background-size: cover;">
+  <div class="header-container" style="background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('{{ .Site.Params.headerImage | absURL }}'); background-position: center; background-size: cover;">
   {{ else }}
   <div class="header-container gradient">
   {{ end }}
