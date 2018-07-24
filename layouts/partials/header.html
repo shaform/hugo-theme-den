@@ -1,7 +1,9 @@
 <div class="container">
   <nav class="header-nav navbar navbar-expand-md navbar-dark light-dark">
     <div class="header-logo navbar-brand">
-      <a class="float-left" href="{{ "/" | absLangURL }}">
+      {{ with .Site.GetPage "home" }}
+        <a class="float-left" href="{{ .Permalink }}">
+      {{ end }}
         {{ with .Site.Params.siteLogoImage }}
         <img class="mr20 header-logo-image" src="{{ . | absURL }}" alt="logo">
         {{ end }}
