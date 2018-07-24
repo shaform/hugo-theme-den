@@ -5,7 +5,7 @@ description = "A port of the Nest Pelican theme for Hugo"
 homepage = "https://github.com/shaform/hugo-theme-den"
 tags = ["responsive", "blog", "clean", "multilingual"]
 features = ["responsive", "blog", "clean", "multilingual"]
-min_version = "0.41"
+min_version = "0.45"
 
 [author]
   name = "shaform"
