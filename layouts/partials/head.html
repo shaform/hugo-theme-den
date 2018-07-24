@@ -41,6 +41,6 @@
 {{- template "_internal/schema.html" . -}}
 {{- template "_internal/twitter_cards.html" . -}}
 
-{{- if .Site.GoogleAnalytics -}}
+{{- if and .Site.GoogleAnalytics (not .Site.IsServer) -}}
   {{ template "_internal/google_analytics_async.html" . }}
 {{- end -}}
