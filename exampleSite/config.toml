@@ -115,12 +115,17 @@ defaultContentLanguageInSubdir = true
     name = "Notes"
     weight = 10
     identifier = "notes"
-    url = "/category/notes/"
+    url = "category/notes/"
   [[languages.en.menu.main]]
     name = "Demos"
     weight = 20
     identifier = "demos"
-    url = "/category/demos/"
+    url = "category/demos/"
+  [[languages.en.menu.main]]
+    name = "About"
+    weight = 30
+    identifier = "about"
+    url = "about/"
 
   [[languages.en.menu.social]]
     name = "GitHub"
@@ -147,12 +152,17 @@ defaultContentLanguageInSubdir = true
     name = "筆記"
     weight = 10
     identifier = "notes"
-    url = "/category/notes/"
+    url = "category/notes/"
   [[languages.zh-tw.menu.main]]
     name = "展示"
     weight = 20
     identifier = "demos"
-    url = "/category/demos/"
+    url = "category/demos/"
+  [[languages.zh-tw.menu.main]]
+    name = "關於"
+    weight = 30
+    identifier = "about"
+    url = "about/"
 
   [[languages.zh-tw.menu.social]]
     name = "GitHub"
