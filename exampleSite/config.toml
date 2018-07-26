@@ -121,11 +121,6 @@ defaultContentLanguageInSubdir = true
     weight = 20
     identifier = "demos"
     url = "category/demos/"
-  [[languages.en.menu.main]]
-    name = "About"
-    weight = 30
-    identifier = "about"
-    url = "about/"
 
   [[languages.en.menu.social]]
     name = "GitHub"
@@ -158,11 +153,6 @@ defaultContentLanguageInSubdir = true
     weight = 20
     identifier = "demos"
     url = "category/demos/"
-  [[languages.zh-tw.menu.main]]
-    name = "關於"
-    weight = 30
-    identifier = "about"
-    url = "about/"
 
   [[languages.zh-tw.menu.social]]
     name = "GitHub"

@@ -19,12 +19,16 @@
     </button>
     <div class="nav-menu collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        {{ range .Site.Menus.main }}
+        {{ range $index, $menuItem := .Site.Menus.main }}
           <li class="nav-item">
-            {{ if hasPrefix .URL "http" }}
-              <a class="nav-link" href="{{ .URL | safeURL }}">{{ with .Pre }}{{ . | safeHTML }}{{ end }}{{ .Name }}</a>
+            {{ with $menuItem.Page }}
+              <a class="nav-link" href="{{ .Permalink }}">{{ with $menuItem.Pre }}{{ . | safeHTML }}{{ end }}{{ $menuItem.Name }}</a>
             {{ else }}
-              <a class="nav-link" href="{{ .URL | absLangURL | safeURL }}">{{ with .Pre }}{{ . | safeHTML }}{{ end }}{{ .Name }}</a>
+              {{ if hasPrefix .URL "http" }}
+                <a class="nav-link" href="{{ .URL | safeURL }}">{{ with $menuItem.Pre }}{{ . | safeHTML }}{{ end }}{{ $menuItem.Name }}</a>
+              {{ else }}
+                <a class="nav-link" href="{{ .URL | absLangURL | safeURL }}">{{ with $menuItem.Pre }}{{ . | safeHTML }}{{ end }}{{ $menuItem.Name }}</a>
+              {{ end }}
             {{ end }}
           </li>
         {{ end }}
