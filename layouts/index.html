@@ -20,7 +20,7 @@
 </div>
 {{ end }}
 {{ define "main" }}
-{{- $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "posts") }}
+{{- $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
 <div class="archive-container">
     <div class="container content archive">
       <h2>{{ i18n "latest_posts" }}{{ if $paginator.HasPrev }} <small>- {{ i18n "page" }} {{ $paginator.PageNumber }}</small>{{ end }}</h2>
