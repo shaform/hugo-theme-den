@@ -65,6 +65,8 @@ defaultContentLanguageInSubdir = true
 
   showMenuLanguages = true
 
+  autoLoadComments = false # auto load comment when scrolling down
+
   # paginate style, default use numbered pagination links
   # if true, use original "Previous" and "Next" links.
   # paginateOriginalStyle = true
