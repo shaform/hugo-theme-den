@@ -479,6 +479,7 @@ blockquote{
 }
 .container .author-card .author-content {
   text-align: left;
+  padding-left: 160px;
 }
 .container .author-card .author-title {
   color: #aaa;
@@ -494,9 +495,6 @@ blockquote{
 .container .author-card .author-box {
   padding: 1em;
 }
-.container .author-card .author-box .author-content {
-  padding-left: 160px;
-}
 .container .author-card .author-box .author-image img {
   margin: 0 auto;
   border-radius: 50%;
@@ -504,6 +502,15 @@ blockquote{
   float: left;
   width: 128px;
   height: 128px;
+}
+@media (max-width: 500px) {
+  .container .author-card .author-box .author-image img {
+    float: none;
+  }
+  .container .author-card .author-content {
+    text-align: center;
+    padding-left: 0;
+  }
 }
 .container .underline {
   display: inline-block;

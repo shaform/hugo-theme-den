@@ -9,7 +9,7 @@
     <div class="author-box">
       <div class="author-image">
         {{- with $author_url -}}
-          <a href="{{ $author_url | relURL }}"><img src="{{ $author_image | relURL }}" /></a>
+          <a href="{{ $author_url | relLangURL }}"><img src="{{ $author_image | relURL }}" alt="{{ $author_name }}" /></a>
         {{- else -}}
           <img src="{{ $author_image | relURL }}" />
         {{- end -}}
