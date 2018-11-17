@@ -1,4 +1,4 @@
-{{- with $author := index .context.Site.Data.authors .author -}}
+{{- with $author := index (.context.Site.Data.authors | default dict) .author -}}
   {{- $author_lang := index $author $.context.Site.LanguageCode | default $author -}}
   {{- $author_name := $author_lang.name.display | default $author.name.display | default $.author -}}
   {{- $author_desc := $author_lang.description | default $author.description | default $.author -}}
