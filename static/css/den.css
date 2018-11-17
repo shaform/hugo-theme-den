@@ -473,6 +473,46 @@ blockquote{
   font-size: 15px;
   opacity: 0.65;
 }
+/* Author Card */
+.container .author-card {
+  text-align: center;
+}
+.container .author-card .author-content {
+  text-align: left;
+}
+.container .author-card .author-title {
+  color: #aaa;
+  margin-bottom: 0.1em;
+}
+.container .author-card .author-name {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+.container .author-card .author-desc {
+  font-size: 0.8em;
+}
+.container .author-card .author-box {
+  padding: 1em;
+}
+.container .author-card .author-box .author-content {
+  padding-left: 160px;
+}
+.container .author-card .author-box .author-image img {
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 1px solid #999;
+  float: left;
+  width: 128px;
+  height: 128px;
+}
+.container .underline {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 50px;
+  border-bottom: 3px solid #eb2344;
+}
+
 /* Comments */
 .comments{
   margin-top: 40px;

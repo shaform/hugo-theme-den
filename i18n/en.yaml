@@ -76,3 +76,6 @@
 
 - id: translations
   translation: "Translations: "
+
+- id: author
+  translation: Author

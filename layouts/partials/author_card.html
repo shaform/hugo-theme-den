@@ -1,0 +1,24 @@
+{{- with $author := index .context.Site.Data.authors .author -}}
+  {{- $author_lang := index $author $.context.Site.LanguageCode | default $author -}}
+  {{- $author_name := $author_lang.name.display | default $author.name.display | default $.author -}}
+  {{- $author_desc := $author_lang.description | default $author.description | default $.author -}}
+  {{- $author_image := $author_lang.image.url | default $author.image.url | default "images/blank-profile.png" -}}
+  {{- $author_url := $author_lang.url | default $author.url -}}
+  <div class="author-card">
+    <div class="underline"></div>
+    <div class="author-box">
+      <div class="author-image">
+        {{- with $author_url -}}
+          <a href="{{ $author_url | relURL }}"><img src="{{ $author_image | relURL }}" /></a>
+        {{- else -}}
+          <img src="{{ $author_image | relURL }}" />
+        {{- end -}}
+      </div>
+      <div class="author-content">
+      <p class="author-title">{{ i18n "author" }}</p>
+      <p class="author-name">{{ $author_name }}</p>
+      <p class="author-desc">{{ $author_desc }}</p>
+      </div>
+    </div>
+  </div>
+{{- end -}}
