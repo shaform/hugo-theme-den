@@ -6,7 +6,7 @@ draft: false
 tags: ["notes"]
 categories: ["Notes"]
 authors:
-- "Shaform"
+- bob
 ---
 
 This is a simple note.

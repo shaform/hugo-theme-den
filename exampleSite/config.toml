@@ -62,6 +62,7 @@ defaultContentLanguageInSubdir = true
   siteLogoImage = "images/globe.svg"     # shown besides logoTitle
   # headerTitle = "Den"                   # default: title
   headerImage = "images/background.jpg"
+  showAuthorCard = true # Whether to show author information below the article
 
   showMenuLanguages = true
 

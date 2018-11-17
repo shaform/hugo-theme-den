@@ -9,7 +9,9 @@
           {{- $last := (sub (len .Params.authors) 1) -}}
           {{- i18n "author_by" }}
           {{ range $index, $value := .Params.authors -}}
-            {{ (index (index $.Site.Data.authors $value) $.Site.LanguageCode).name.display | default (index $.Site.Data.authors $value).name.display | default $value }}{{ if ne $index $last }}, {{ end -}}
+            {{- $author := index $.Site.Data.authors $value -}}
+            {{- $author_lang := index ($author | default $.Site.Data.authors) $.Site.LanguageCode | default $author -}}
+            {{ $author_lang.name.display | default $value }}{{ if ne $index $last }}, {{ end -}}
           {{ end }} /
         {{ end }}
         {{ .Date.Format (.Site.Params.dateFormatToUse | default "Mon 02 January 2006") -}}

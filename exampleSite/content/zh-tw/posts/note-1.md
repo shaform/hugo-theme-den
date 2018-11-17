@@ -6,7 +6,7 @@ draft: false
 tags: ["notes"]
 categories: ["Notes"]
 authors:
-- "Shaform"
+- bob
 ---
 
 這是一個簡單的筆記。
