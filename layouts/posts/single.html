@@ -10,7 +10,7 @@
           {{- i18n "author_by" }}
           {{ range $index, $value := .Params.authors -}}
             {{- $author := index $.Site.Data.authors $value -}}
-            {{- $author_lang := index ($author | default $.Site.Data.authors) $.Site.LanguageCode | default $author -}}
+            {{- $author_lang := index ($author | default (dict "none" nil)) $.Site.LanguageCode | default $author -}}
             {{ $author_lang.name.display | default $value }}{{ if ne $index $last }}, {{ end -}}
           {{ end }} /
         {{ end }}
