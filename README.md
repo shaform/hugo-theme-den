@@ -43,3 +43,7 @@ Released under the [GPLv2](https://github.com/shaform/hugo-theme-den/blob/master
 
 - [Nest](https://github.com/molivier/nest)
 - [hugo-theme-jane](https://github.com/xianmin/hugo-theme-jane)
+
+## Websites that use Den
+
+- [翼之都](https://city.shaform.com/)
