@@ -7,6 +7,7 @@ A simple theme for Hugo
 ## Screenshots
 
 ![den-showcase](https://raw.githubusercontent.com/shaform/hugo-theme-den/master/images/tn.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fshaform%2Fhugo-theme-den.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fshaform%2Fhugo-theme-den?ref=badge_shield)
 
 ## Installation
 
@@ -38,6 +39,9 @@ git pull
 ## License
 
 Released under the [GPLv2](https://github.com/shaform/hugo-theme-den/blob/master/LICENSE) License.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fshaform%2Fhugo-theme-den.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fshaform%2Fhugo-theme-den?ref=badge_large)
 
 ## Acknowledgements
 
