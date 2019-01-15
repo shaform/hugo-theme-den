@@ -17,7 +17,7 @@
       <div class="author-content">
       <p class="author-title">{{ i18n "author" }}</p>
       <p class="author-name">{{ $author_name }}</p>
-      <p class="author-desc">{{ $author_desc }}</p>
+      <p class="author-desc">{{ $author_desc | markdownify }}</p>
       </div>
     </div>
   </div>
