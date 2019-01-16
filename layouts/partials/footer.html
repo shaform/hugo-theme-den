@@ -21,6 +21,11 @@
             <li><a rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}"><i class="fas fa-rss-square"></i> {{ i18n "rss_feed" }}</a></li>
             {{ end }}
             {{ end }}
+            {{ if .Site.Menus.feed }}
+              {{ range .Site.Menus.feed }}
+                <li><a type="application/rss+xml" href="{{ .URL | absLangURL | safeURL }}"><i class="fas fa-rss-square"></i> {{ .Name }}</a></li>
+              {{ end }}
+            {{ end }}
         </ul>
       </div>
       <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
