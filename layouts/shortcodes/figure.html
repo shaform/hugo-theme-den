@@ -11,7 +11,7 @@ Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
 <div class="box{{ with .Get "caption-position" }} fancy-figure caption-position-{{.}}{{end}}{{ with .Get "caption-effect" }} caption-effect-{{.}}{{end}}{{ with .Get "align" }} {{.}}{{end}}"{{ with .Get "width" }} style="max-width:{{.}}{{ if eq (len (trim . "0123456789")) 0 }}px{{ end }};"{{end}}>
   <figure {{ with .Get "class" }}class="{{.}}"{{ end }} itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img"{{ if .Parent }} style="background-image: url('{{ print .Site.BaseURL $thumb }}');"{{ end }}{{ with .Get "size" }} data-size="{{.}}"{{ end }}>
-      <img itemprop="thumbnail" src="{{ $thumb }}" {{ with .Get "alt" | default (.Get "caption") }}alt="{{.}}"{{ end }}{{ with .Get "height" }} style="max-height:{{.}}{{ if eq (len (trim . "0123456789")) 0 }}px{{ end }};"{{end}} /><!-- <img> hidden if in .gallery -->
+      <img {{ with .Get "img-class" }}class="{{.}}"{{ end }} itemprop="thumbnail" src="{{ $thumb }}" {{ with .Get "alt" | default (.Get "caption") }}alt="{{.}}"{{ end }}{{ with .Get "height" }} style="max-height:{{.}}{{ if eq (len (trim . "0123456789")) 0 }}px{{ end }};"{{end}} /><!-- <img> hidden if in .gallery -->
     </div>
     {{ with .Get "link" }}<a href="{{.}}" itemprop="contentUrl"></a>{{ end }}
     {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
