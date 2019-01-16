@@ -7,7 +7,8 @@
  * Copyright 2015 Matthieu OLIVIER
  * Licensed under GPL V2 (https://github.com/molivier/nest/blob/master/LICENSE)
  */
-@import url("fonts.css");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700');
+
 @import url("syntax.css");
 
 /* Responsive */
