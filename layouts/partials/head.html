@@ -19,7 +19,12 @@
 
 {{- with .Site.Params.google_verification -}}
 <meta name="google-site-verification" content="{{.}}" />
-{{- end -}}
+{{- end }}
+
+<link rel="canonical" href="{{ .Permalink }}" />
+{{ range (.Translations | sort) -}}
+<link rel="alternate" href="{{ .Permalink }}" hreflang="{{ .Site.LanguageCode }}">
+{{ end }}
 
 {{- with .Site.Params.customFavicon -}}
 <link rel="icon" href="{{ . | absURL }}" />

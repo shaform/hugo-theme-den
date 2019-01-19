@@ -59,7 +59,9 @@
 
 {{ define "main" }}
 <div class="container content">
+  <article>
   {{ .Content }}
+  </article>
 
   {{ if .Site.Params.enableRelated -}}
   {{- $related := .Site.RegularPages.Related . | first 5 -}}

@@ -21,7 +21,9 @@
   {{- partial "header.html" . -}}
   {{ block "header" . }}{{- end }}
   </div>
+  <main>
   {{- block "main" . }}{{- end }}
+  </main>
   {{- partial "footer.html" . -}}
   {{ partial "scripts.html" . }}
 </body>
