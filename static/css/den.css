@@ -30,8 +30,8 @@
 @media (min-width: 768px) {
   .header-nav {
     height:100px;
-    line-height:100px;
     display: block !important;
+	padding-top: 25px;
   }
   .header-nav .nav-menu {
     float:right;
@@ -283,7 +283,7 @@ h4:after {
 }
 .header-content {
   text-align: center;
-  padding: 25px 0 55px 0;
+  padding: 45px 0 55px 0;
 }
 .header-title {
   font-size: 28px;
