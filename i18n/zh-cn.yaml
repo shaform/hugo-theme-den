@@ -1,0 +1,81 @@
+- id: sitemap
+  translation: 网站地图 
+
+- id: tags
+  translation: 标签 
+
+- id: categories
+  translation: 分类 
+
+- id: social
+  translation: 社群
+
+- id: links
+  translation: 友链 
+
+- id: rss_feed
+  translation: RSS订阅 
+
+- id: tag
+  translation: 标签 
+
+- id: category
+  translation: 分类 
+
+- id: archive_of_tag
+  translation: 标签归档：
+
+- id: archive_of_category
+  translation: 分类归档：
+
+- id: archive
+  translation: 归档 
+
+- id: list_of_tags
+  translation: 标签列表
+
+- id: list_of_categories
+  translation: 分类列表
+
+- id: more_post
+  translation: 更多文章
+
+- id: articles_tagged
+  translation: 篇被标记
+
+- id: article_tagged
+  translation: 篇被标记
+
+- id: error_404
+  translation: '404 错误 - 找不到网页'
+
+- id: in_category
+  translation: 分类：
+
+
+- id: latest_posts
+  translation: 最新文章
+
+- id: page
+  translation: 页 
+
+- id: previous
+  translation: 上一页
+
+- id: next
+  translation: 下一页
+
+- id: author_by
+  translation: 作者：
+
+- id: related
+  translation: 相关文章
+
+- id: load_disqus
+  translation: 载入 Disqus 评论 
+
+- id: translations
+  translation: "翻译： "
+
+- id: author
+  translation: 作者
