@@ -22,7 +22,7 @@
 {{ define "main" }}
 {{- $pages := .Pages -}}
 {{- if .IsHome -}}
-  {{- $pages = where .Site.RegularPages "Type" "in" "posts" -}}
+  {{- $pages = where .Site.RegularPages "Type" "posts" -}}
 {{- end -}}
 {{- $paginator := .Paginate $pages -}}
 <div class="archive-container">
