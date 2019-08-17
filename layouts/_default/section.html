@@ -21,7 +21,7 @@
         <dl class="row">
             {{ range $paginator.Pages -}}
             <dt class="col-md-3">{{ .Date.Format (.Site.Params.dateFormatToUse | default "Mon 02 January 2006") }}</dt>
-            <dd class="col-md-9"><a href="{{ .URL }}">{{ .Title }}</a></dd>
+            <dd class="col-md-9"><a href="{{ .Permalink }}">{{ .Title }}</a></dd>
             {{ end }}
         </dl>
     </div>
