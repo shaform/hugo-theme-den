@@ -1,0 +1,81 @@
+- id: sitemap
+  translation: Mapa stranice
+
+- id: tags
+  translation: Oznake
+
+- id: categories
+  translation: Kategorije
+
+- id: social
+  translation: Društvene mreže
+
+- id: links
+  translation: Poveznice
+
+- id: rss_feed
+  translation: RSS unosi
+
+- id: tag
+  translation: Oznaka
+
+- id: category
+  translation: Kategorija
+
+- id: archive_of_tag
+  translation: Arhive izlistane po oznakama
+
+- id: archive_of_category
+  translation: Arhive izlistane po kategorijama
+
+- id: archive
+  translation: Arhive
+
+- id: list_of_tags
+  translation: Popis oznaka
+
+- id: list_of_categories
+  translation: Popis kategorija
+
+- id: more_post
+  translation: Više objava
+
+- id: articles_tagged
+  translation: označeni članci
+
+- id: article_tagged
+  translation: označeni članak
+
+- id: error_404
+  translation: 'Greška 404 - stranica nije pronađena'
+
+- id: in_category
+  translation: U kategorijama
+
+
+- id: latest_posts
+  translation: Najnovije objave
+
+- id: page
+  translation: Stranica
+
+- id: previous
+  translation: Prethodna
+
+- id: next
+  translation: Sljedeća
+
+- id: author_by
+  translation: autor
+
+- id: related
+  translation: Povezane objave
+
+- id: load_disqus
+  translation: Učitaj Disqus komentare
+
+- id: translations
+  translation: "Prijevodi: "
+
+- id: author
+  translation: Autor
