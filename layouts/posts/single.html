@@ -63,16 +63,32 @@
   {{ .Content }}
   </article>
 
-  {{ if .Site.Params.enableRelated -}}
-  {{- $related := .Site.RegularPages.Related . | first 5 -}}
-  {{- with $related }}
-      <h4>{{ i18n "related" }}</h4>
-      <dl class="row">
-      {{ range . }}
-          <dt class="col-md-3">{{ .Date.Format (.Site.Params.dateFormatToUse | default "Mon 02 January 2006") }}</dt>
-          <dd class="col-md-9"><a href="{{ .RelPermalink }}">{{ .Title }}</a></dd>
-      {{ end }}
-      </dl>
+  <!-- Related Articles -->
+  {{ $currentPagePermalink := .Permalink }}
+  {{ $tags := .Params.tags }}
+    <h2>{{ i18n "related" }}</h2>
+    <dl class="row">
+  {{ range .Site.Pages }}
+    {{ $isMatchTags := intersect $tags .Params.tags | len | lt 1 }}
+    {{ if and $isMatchTags (ne .Permalink $currentPagePermalink) (lt ($.Scratch.Get "limit") 5) }}
+    <dt class="col-md-3">{{ .Date.Format (.Site.Params.dateFormatToUse | default "Mon 02 January 2006") }}</dt>
+    <dd class="col-md-9"><a href="{{ .RelPermalink }}">{{ .Title }}</a></dd>
+    {{ $.Scratch.Add "limit" 1 }}
+  {{ end }}
+    </dl>
+  {{ end }}
+
+  {{ if eq ($.Scratch.Get "count") 0 | eq ($.Scratch.Get "count") 1}}
+  {{ $.Scratch.Set "limit" 0 }}
+    <dl class="row">
+  {{ range .Site.Pages }}
+    {{ $isMatchTags := intersect $tags .Params.tags | len | lt 0 }}
+    {{ if and $isMatchTags (ne .Permalink $currentPagePermalink) (lt ($.Scratch.Get "limit") 5) }}
+    <dt class="col-md-3">{{ .Date.Format (.Site.Params.dateFormatToUse | default "Mon 02 January 2006") }}</dt>
+    <dd class="col-md-9"><a href="{{ .RelPermalink }}">{{ .Title }}</a></dd>
+    {{ $.Scratch.Add "limit" 1 }}
+  {{ end }}
+  </dl>
   {{ end }}
   {{ end }}
   {{ if (.Params.showAuthorCard | default .Site.Params.showAuthorCard) }}
